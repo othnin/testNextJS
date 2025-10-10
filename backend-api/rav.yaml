@@ -1,0 +1,28 @@
+scripts: 
+  server:
+    - cd src && python manage.py runserver 8001
+  makemigrations:
+    - cd src && python manage.py makemigrations
+  migrate:
+    - cd src && python manage.py migrate
+  shell:
+    - cd src && python manage.py shell
+  collectstatic:
+    - cd src && python manage.py collectstatic --noinput
+  test:
+    - cd src && python manage.py test
+  lint:
+    - cd src && flake8 .
+  shell:
+    - cd src && python manage.py shell
+  createsuperuser:
+    - cd src && python manage.py createsuperuser
+  install-deps:
+    - pip install -r backend-api/requirements.txt
+  curl_auth: |
+     curl -X POST -H "Content-Type: application/json" -d '{"username":"achilles","password":"phoenix42"}' 
+     http://localhost:8001/api/token/pair
+  curl_protect: |
+     curl -X GET -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNj
+     ZXNzIiwiZXhwIjoxNzU4NzQzNDk3LCJpYXQiOjE3NTg3NDMxOTcsImp0aSI6IjZiYWJmODhlOWJjNDRiNzlhNzdmZGIwOGIxYjg
+     4YTFlIiwidXNlcl9pZCI6MX0.LOzbnVElaqcjYsaQQAN-bnMywIl9uQwZfi5gp9kQLnQ"   http://localhost:8001/api/me
