@@ -1,3 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* App global defaults - adjust as needed */
+html, body, #__next {
+  height: 100%;
+}
+
+body {
+  @apply bg-white text-black antialiased;
+}
+
+/* Example utility aliases (optional) */
+/* .min-h-svh is used in some pages in this project (small viewport height) */
+.min-h-svh {
+  min-height: 90vh;
+}
+
 @import "tailwindcss";
 @import "tw-animate-css";
 

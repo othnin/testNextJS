@@ -2,6 +2,7 @@
 
 import { useAuth } from "@/components/authProvider"
 import useSWR from "swr";   
+import { ThemeToggleButton } from "@/components/themeToggleButton"
 
 const fetcher = (...args) => fetch(...args).then(res => res.json())
 
@@ -18,6 +19,7 @@ export default function Home() {
         <div>
           {auth.isAuthenticated ? "Hello User" : "Hellow guest"}
         </div>
+        <ThemeToggleButton />
         <div>Data from Django API: {JSON.stringify(data)}</div>
 
 
