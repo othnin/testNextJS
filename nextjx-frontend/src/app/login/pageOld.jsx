@@ -4,8 +4,6 @@ const LOGIN_URL = "/api/login/"
 
 export default function Page(){
     const auth = useAuth()
-
-
     async function handleSubmit(event){
         console.log("Form submitted")
         event.preventDefault() //stop from being redirected.

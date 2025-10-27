@@ -1,3 +1,7 @@
 {
-  "/login/page": "app/login/page.js"
+  "/_not-found/page": "app/_not-found/page.js",
+  "/api/waitlists/route": "app/api/waitlists/route.js",
+  "/page": "app/page.js",
+  "/login/page": "app/login/page.js",
+  "/waitlists/page": "app/waitlists/page.js"
 }

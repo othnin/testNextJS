@@ -20,14 +20,13 @@ export async function POST(request) {
     console.log("Response from Django login API: ", response.ok)
     if (response.ok) {
         console.log("responseOK")
-        const { access, refresh } = responseData;
+        const { access, refresh, username } = responseData;
         await setToken(access);
         await setRefreshToken(refresh);
-
-        // return a JSON response to the client indicating success
-        return NextResponse.json({ "loggedIn": true }, { status: 200 });
+        return NextResponse.json({ loggedIn: true, user: username }, { status: 200 });
     } 
 
-    return NextResponse.json({ "loggedIn": false }, ...responseData, { status: 400 });
+    // Return the backend error details in the body for easier debugging on client
+    return NextResponse.json({ loggedIn: false, error: responseData }, { status: 400 });
 
 }

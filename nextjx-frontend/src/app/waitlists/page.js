@@ -2,6 +2,7 @@
 import { useAuth } from "@/components/authProvider";
 import { useEffect } from "react";
 import useSWR from "swr";   
+import  WaitListForm  from "./forms";
 
 const fetcher = async url => {
   const res = await fetch(url)
@@ -36,6 +37,9 @@ export default function Page() {
   return (
     <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
       <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
+        <div>
+          <WaitListForm />
+        </div>
         <div>
           <h1> app/waitilist/page.js</h1>
           {JSON.stringify(data)}

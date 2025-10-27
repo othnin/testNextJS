@@ -31,3 +31,42 @@ export async function GET(request){
     return NextResponse.json({...result}, {status:status})
 
 }
+
+
+export async function POST(request) {
+
+    const requestData = await request.json()       
+    const jsonData = JSON.stringify(requestData)
+    let headers =  {
+            "Content-Type": "application/json",
+            "Accept": "application/json",
+    }
+    // read cookies on the server
+    const cookieStore = await cookies();
+    const authToken = cookieStore.get('auth-token')?.value ?? null;
+    if (authToken){
+        headers["Authorization"] = `Bearer ${authToken}`
+    }
+    const requestOptions = {
+        method: "POST",
+        headers: headers,
+        body: jsonData
+    }
+    const response = await fetch(DJANGO_API_WAITLISTS_URL, requestOptions);
+    console.log(response.status)
+    try {
+        const responseData = await response.json();
+    } catch (error) {
+        return NextResponse.json({message: "Not found"}, { status: 404 });
+    }
+    if (response.ok) {
+        console.log("responseOK")
+        return NextResponse.json({}, { status: 200 });
+    } 
+    return NextResponse.json({}, { status: 400 });
+    
+    
+  
+    
+
+}
