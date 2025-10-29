@@ -37,6 +37,7 @@ WORKDIR /code
 # Copy the requirements file into the container
 COPY requirements.txt /tmp/requirements.txt
 
+RUN pwd
 # copy the project code into the container's working directory
 COPY ./src /code
 
