@@ -110,6 +110,9 @@
 .relative {
   position: relative;
 }
+.static {
+  position: static;
+}
 .sticky {
   position: sticky;
 }
@@ -205,6 +208,9 @@
 }
 .my-1 {
   margin-block: calc(var(--spacing) * 1);
+}
+.mt-2 {
+  margin-top: calc(var(--spacing) * 2);
 }
 .mt-4 {
   margin-top: calc(var(--spacing) * 4);
@@ -568,6 +574,9 @@
 .cursor-default {
   cursor: default;
 }
+.cursor-pointer {
+  cursor: pointer;
+}
 .scroll-my-1 {
   scroll-margin-block: calc(var(--spacing) * 1);
 }
@@ -665,6 +674,13 @@
     margin-block-end: calc(calc(var(--spacing) * 1) * calc(1 - var(--tw-space-y-reverse)));
   }
 }
+.space-y-4 {
+  :where(& > :not(:last-child)) {
+    --tw-space-y-reverse: 0;
+    margin-block-start: calc(calc(var(--spacing) * 4) * var(--tw-space-y-reverse));
+    margin-block-end: calc(calc(var(--spacing) * 4) * calc(1 - var(--tw-space-y-reverse)));
+  }
+}
 .self-start {
   align-self: flex-start;
 }
@@ -758,6 +774,9 @@
     border-color: color-mix(in oklab, var(--border) 50%, transparent);
   }
 }
+.border-destructive {
+  border-color: var(--destructive);
+}
 .border-gray-300 {
   border-color: var(--color-gray-300);
 }
@@ -847,6 +866,9 @@
 }
 .p-2 {
   padding: calc(var(--spacing) * 2);
+}
+.p-3 {
+  padding: calc(var(--spacing) * 3);
 }
 .p-4 {
   padding: calc(var(--spacing) * 4);

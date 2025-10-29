@@ -52,14 +52,14 @@ export function AuthProvider({ children }) {
 
     const logout = () => {
         setIsAuthenticated(false)
-        setUser(null)
+        setUsername(null)
         localStorage.setItem(LOCAL_STORAGE_KEY, "0")
         router.replace(LOGOUT_REDIRECT_URL)
     }
 
     const loginRequiredRedirect = () => {
         setIsAuthenticated(false)
-        setUser(null)
+        setUsername(null)
         localStorage.setItem(LOCAL_STORAGE_KEY, "0")
         let loginWithNextUrl = `${LOGIN_REQUIRED_URL}?next=${pathname}`
         if (LOGIN_REQUIRED_URL === pathname) {
